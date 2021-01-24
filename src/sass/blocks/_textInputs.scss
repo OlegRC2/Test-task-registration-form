@@ -1,0 +1,82 @@
+.main-form {
+    &__input-title {
+        margin-top: 40px;
+        color: rgba(255, 255, 255, 0.5);
+        opacity: 1;
+        font-family: "Mabry Pro";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    &__wrapper-input {
+        position: relative;
+    }
+    &__input {
+        width: 560px;
+        height: 60px;
+        display: block;
+        margin: 0 auto;
+        border: 1px solid #3D3C5A;
+        border-bottom: 1px solid rgba(white, 0.3);
+        background: transparent;
+        font-family: "Mabry Pro";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    &__select {
+        color: rgba(white, 0.5);
+        background: black;
+        appearance: none;
+        background: url(../icons/selectArrow.svg) no-repeat right center;
+        &:focus {
+            background: #3D3C5A;
+            color: white;
+        }
+    }
+    &__name {
+        color: white;
+        padding-left: 0;
+        &::placeholder {
+            color: rgba(white, 0.5);
+        }
+        &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+            -webkit-text-fill-color: white;
+            -webkit-box-shadow: 0 0 0 60px #3D3C5A inset;
+        }
+    }
+    &__phone {
+        width: 256px;
+        margin-left: 0;
+        padding-left: 0;
+        color: white;
+        &::placeholder {
+            color: rgba(white, 0.5);
+        }
+        &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+            -webkit-text-fill-color: white;
+            -webkit-box-shadow: 0 0 0 60px #3D3C5A inset;
+        }
+    }
+    &__textarea {
+        padding-left: 0;
+        padding-top: 14px;
+        color: white;
+        &::placeholder {
+            color: rgba(white, 0.5);
+        }
+    }
+    .city, .initials, .num-tel, .comment {
+        opacity: 0;
+    }
+    .bug-line-name, .bug-line-phone {
+        position: absolute;
+        top: 83px;
+        height: 1px;
+        width: 10px;
+        background-color: rgba(white, 0.3);
+        opacity: 0;
+    }
+}

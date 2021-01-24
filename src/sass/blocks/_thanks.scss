@@ -1,0 +1,39 @@
+.container-thanks {
+    width: 780px;
+    margin: 0 auto;
+    .popup-thanks {
+        position: relative;
+        width: 720px;
+        height: 416px;
+        margin: 0 auto;
+        margin-top: 288px;
+        background: #3D3C5A;
+        border-radius: 16px;
+        padding: 67px 80px 80px 80px;
+        display: none;
+        .thanks-white {
+            left: 17px;
+            top: 5px;
+            width: 370px;
+            height: 315px;
+        }
+        .thanks-purple {
+            left: 437px;
+            top: 145px;
+            width: 223px;
+            height: 300px;
+        }
+        .thanks-descr {
+            font-family: 'Mabry Pro';
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 300;
+            font-style: normal;
+            color: white;
+            margin-top: 49px;
+        }
+        .thanks-btn {
+            margin-top: 62px;
+        }
+    }
+}

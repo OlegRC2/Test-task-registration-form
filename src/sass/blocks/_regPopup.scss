@@ -1,0 +1,72 @@
+.popup-reg {
+    position: relative;
+    width: 720px;
+    min-height: 1535px;
+    margin: 0 auto;
+    background: #3D3C5A;
+    border-radius: 16px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 70px 80px 0 80px;
+    &__shadow-white {
+        position: absolute;
+        width: 432px;
+        height: 438px;
+        left: 10px;
+        opacity: 0.8;
+        filter: blur(85px);
+        background: #89B2FF;
+        transform: matrix(0.87, 0.5, 0.5, -0.87, 0, 0);
+        z-index: -1;
+    }
+    .white-bottom {
+        bottom: -17px;
+        left: 42px;
+        transform: rotate(-15deg);
+        width: 350px;
+        height: 280px;
+    }
+    &__shadow-purple {
+        position: absolute;
+        width: 544px;
+        height: 541px;
+        left: 170px;
+        top: 450px;
+        opacity: 0.8;
+        filter: blur(85px);
+        background: #CC5EF2;
+        transform: rotate(90deg);
+        z-index: -1;
+    }
+    &__close {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            top: 13px;
+            left: -5px;
+            width: 37px;
+            height: 2px;
+            background: #9E9DAC;
+        }
+        &::before {
+            transform: rotate(45deg);
+        }
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+    &__title {
+        font-family: "Mabry Pro";
+        font-weight: 900;
+        font-style: normal;
+        font-size: 48px;
+        color: white;
+        line-height: 56px;
+    }
+}

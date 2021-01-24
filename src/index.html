@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>Registration form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="popup-reg">
+            <div class="popup-reg__shadow-white"></div>
+            <div class="popup-reg__shadow-purple"></div>
+            <div class="popup-reg__shadow-white white-bottom"></div>
+    
+            <div class="popup-reg__close"></div>
+            <h1 class="popup-reg__title">Регистрация</h1>
+    
+            <form action="#" class="main-form">
+                <div class="main-form__wrapper-input">
+                    <div class="main-form__input-title city">Город</div>
+                    <select name="select" class="main-form__select main-form__input" required>
+                        <option value="" disabled selected hidden>Город</option>
+                        <option value="Санкт-Петербург">Санкт-Петербург</option> 
+                        <option value="Москва">Москва</option>
+                        <option value="Екатеринбург">Екатеринбург</option>
+                        <option value="Новосибирск">Новосибирск</option>
+                        <option value="Пермь">Пермь</option>
+                    </select>
+                </div>
+    
+                <div class="main-form__wrapper-input">
+                    <div class="main-form__input-title initials">Имя Фамилия</div>
+                    <input type="text" class="main-form__name main-form__input" name="name" placeholder="Имя Фамилия" required>
+                    <div class="bug-line-name"></div>   <!-- устранение бага при автоподстановке -->
+                </div>
+    
+                <div class="main-form__wrapper-input">
+                    <div class="main-form__input-title num-tel">Телефон</div>
+                    <input type="tel" class="main-form__phone main-form__input" name="phone" placeholder="Телефон" required>
+                    <div class="bug-line-phone"></div>   <!-- устранение бага при автоподстановке -->
+                </div>
+    
+                <div class="main-form__wrapper-input">
+                    <div class="main-form__input-title comment">Комментарий</div>
+                    <textarea class="main-form__textarea main-form__input" name="message" placeholder="Комментарий"></textarea>
+                </div>
+    
+                <div class="main-form__wrapper-radio">
+                    <div class="main-form__input-title">Мастер-класс</div>
+                    
+                    <div class="main-form__radio">
+                        <label class="main-form__custom-radio">
+                            <input type="radio" name="radio" value="1" checked="true">
+                            <span class="main-form__radio-text radio-active">Экономия на онлайн-шопинге</span>
+                        </label><br>
+                    </div>
+                    <div class="main-form__radio">
+                        <label class="main-form__custom-radio">
+                            <input type="radio" name="radio" value="2">
+                            <span class="main-form__radio-text">Мастер-класс</span>
+                        </label><br>
+                    </div>
+                    <div class="main-form__radio">
+                        <label class="main-form__custom-radio">
+                            <input type="radio" name="radio" value="3">
+                            <span class="main-form__radio-text">Лучшие площадки</span>
+                        </label><br>
+                    </div>
+                    <div class="main-form__radio">
+                        <label class="main-form__custom-radio">
+                            <input type="radio" name="radio" value="4">
+                            <span class="main-form__radio-text">Мастер-класс</span>
+                        </label><br>
+                    </div>
+                    
+    
+                    <div class="main-form__wrapper-checkbox">
+                        <div class="main-form__input-title">Время проведения</div>
+    
+                        <div class="main-form__checkbox">
+                            <label class="main-form__custom-checkbox">
+                                <input type="checkbox" name="checkbox" value="12">
+                                <span class="main-form__checkbox-text">12:00 - 14:00</span>
+                            </label><br>
+                        </div>
+                        <div class="main-form__checkbox">
+                            <label class="main-form__custom-checkbox">
+                                <input type="checkbox" name="checkbox" value="15">
+                                <span class="main-form__checkbox-text">15:00 - 17:00</span>
+                            </label><br>
+                        </div>
+                        <div class="main-form__checkbox">
+                            <label class="main-form__custom-checkbox">
+                                <input type="checkbox" name="checkbox" value="19">
+                                <span class="main-form__checkbox-text">19:00 - 21:00</span>
+                            </label><br>
+                        </div>
+                    </div>
+    
+                    <div class="main-form__wrapper-switch">
+                        <div class="main-form__switch-title">Онлайн</div>
+    
+                        <div class="main-form__switch">
+                            <input type="checkbox" id="switch" name="switch">
+                            <label for="switch" class="switch-label"></label>
+                        </div>
+    
+                        <div class="main-form__switch-title">Офлайн</div>
+                    </div>
+                        
+                    <div class="main-form__wrapper-range">
+                        <div class="main-form__input-title price-text">Сколько вы готовы заплатить за мероприятие?</div>
+                        <div class="main-form__sum-range">0 
+                            <span class="rub">P</span>
+                        </div>
+    
+                        <input class="main-form__range" type="range" name="range" min="0" max="10000" step="50" value="0"> 
+                        <div class="main-form__range-active"></div>
+                    </div>
+                   
+                    <div class="main-form__wrapper-send">
+                        <button class="main-form__send">Отправить</button>
+                        <div class="main-form__info-text">Нажимая на кнопку, вы соглашаетесь с
+                            <a href="#" class="main-form__politic">Политикой обработки персональных данных</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <div class="container-thanks">
+        <div class="popup-thanks">
+            <div class="popup-reg__shadow-white thanks-white"></div>
+            <div class="popup-reg__shadow-purple thanks-purple"></div>
+            
+            <div class="popup-reg__close thanks-close"></div>
+            <h1 class="popup-reg__title thanks-title">Спасибо за заявку</h1>
+            <div class="thanks-descr">Мы свяжемся с вами в ближайшее время</div>
+            <button class="main-form__send active-btn thanks-btn">Продолжить</button>
+        </div>
+    </div>
+    
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

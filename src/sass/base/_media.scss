@@ -1,0 +1,144 @@
+@media (max-width: 575px) {
+    .popup-reg {
+        min-height: 2000px;
+        &__title {
+            transform: scale(1.4);
+            margin-left: 60px;
+        }
+        &__close {
+            transform: scale(1.7);
+        }
+        .main-form {
+            &__input-title {
+                transform: scale(1.13);
+                font-size: 22px;
+            }
+            &__input {
+                transform: scale(1.13);
+                font-size: 30px;
+                margin-top: 15px;
+            }
+            &__phone {
+                margin-left: -20px;
+            }
+            &__wrapper-radio {
+                margin-top: 60px;
+                .main-form__radio {
+                    transform: scale(1.5);
+                    margin-left: 85px;
+                    margin-top: 25px;
+                    &:nth-child(2) {
+                        margin-top: 40px;
+                    }
+                    &:nth-child(5) {
+                        margin-bottom: 40px;
+                    }
+                }
+            }
+            &__wrapper-checkbox {
+                .main-form__checkbox {
+                    transform: scale(1.5);
+                    margin-left: 85px;
+                    margin-top: 25px;
+                    &:nth-child(2) {
+                        margin-top: 40px;
+                    }
+                }
+            }
+            &__wrapper-switch {
+                transform: scale(1.6);
+                margin-left: 41px;
+                margin-top: 5px;
+                margin-bottom: 75px;
+                width: 250px;
+            }
+            &__wrapper-range {
+                width: 620px;
+            }
+            .price-text {
+                margin-left: 5px;
+            }
+            &__sum-range {
+                transform: scale(1.13);
+                margin-top: 20px;
+                margin-bottom: 5px;
+                margin-left: 5px;
+            }
+            input[type=range] {
+                width: 620px;
+                margin-left: -35px;
+            }
+            input[type=range]::-webkit-slider-thumb {
+                height: 35px;
+                width: 35px;
+                border-radius: 40px;
+                margin-top: -17px;
+            }
+            input[type=range]::-moz-range-thumb {
+                height: 35px;
+                width: 35px;
+                border-radius: 40px;
+            }
+            input[type=range]::-ms-thumb {
+                height: 35px;
+                width: 35px;
+                border-radius: 40px;
+            }
+            &__range-active {
+                margin-left: -35px;
+                top: 105px;
+            }
+            &__wrapper-send {
+                flex-direction: column;
+                width: 620px;
+            }
+            &__send {
+                transform: scale(1.6);
+                margin-left: 25px;
+                margin-top: 110px;
+            }
+            &__info-text {
+                width: 100%;
+                font-size: 22px;
+                margin-left: -35px;
+                margin-top: 65px;
+                line-height: 32px;
+            }
+        }
+        .bug-line-name, .bug-line-phone {
+            transform: scale(1.13);
+            top: 103px;
+        }
+    }
+
+    .container-thanks {
+        .popup-thanks {
+            height: 600px;
+            border-radius: 34px;
+            .thanks-purple {
+                top: 315px;
+            }
+            .thanks-close {
+                transform: scale(2);
+                top: 60px;
+                right: 60px;
+            }
+            .thanks-title {
+                width: 250px;
+                margin-left: 30px;
+                margin-top: 35px;
+                transform: scale(1.5);
+            }
+            .thanks-descr {
+                font-size: 32px;
+                line-height: 52px;
+                margin-top: 72px;
+                margin-left: -30px;
+            }
+            .thanks-btn {
+                transform: scale(1.5);
+                margin-left: 20px;
+            }
+        }
+    }
+}

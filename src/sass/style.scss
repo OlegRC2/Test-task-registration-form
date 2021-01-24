@@ -1,0 +1,33 @@
+@import 'libs/bootstrap-reboot.min';
+@import 'libs/fonts';
+
+body {
+    background: #0C0B31;
+}
+.container {
+    width: 780px;
+    margin: 0 auto;
+}
+
+@import 'blocks/regPopup';
+@import 'blocks/textInputs';
+@import 'blocks/radio';
+@import 'blocks/checkbox';
+@import 'blocks/switch';
+@import 'blocks/range';
+@import 'blocks/send';
+@import 'blocks/thanks';
+
+.container {
+    .radio-checkbox-active {
+        color: white;
+    }
+}
+
+.active-btn {
+    background: #FF7777;
+    box-shadow: 0px 10px 30px rgba(255, 119, 119, 0.4);
+    color: white;
+}
+
+@import 'base/media';
