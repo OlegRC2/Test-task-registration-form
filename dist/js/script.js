@@ -2487,6 +2487,83 @@ function checkbox() {
 
 /***/ }),
 
+/***/ "./src/js/modules/mask.js":
+/*!********************************!*\
+  !*** ./src/js/modules/mask.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each.js */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.string.replace.js */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+var mask = function mask(selector) {
+  // функция маски номера телефона
+  var numTel = document.querySelector('.num-tel');
+
+  var setCursorPosition = function setCursorPosition(pos, elem) {
+    elem.focus();
+
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(pos, pos);
+    } else if (elem.createTextRange) {
+      var range = elem.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', pos);
+      range.moveStart('character', pos);
+      range.select();
+    }
+  };
+
+  function createMask(event) {
+    var matrix = '+7 ___ ___-__-__',
+        i = 0,
+        def = matrix.replace(/\D/g, ''),
+        val = this.value.replace(/\D/g, '');
+
+    if (def.length >= val.length) {
+      val = def;
+    }
+
+    this.value = matrix.replace(/./g, function (a) {
+      return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+    });
+
+    if (event.type === 'blur') {
+      if (this.value.length == 2) {
+        this.value = '';
+        numTel.style.opacity = 0;
+      }
+    } else {
+      setCursorPosition(this.value.length, this);
+    }
+  }
+
+  var inputs = document.querySelectorAll(selector);
+  inputs.forEach(function (input) {
+    input.addEventListener('input', createMask);
+    input.addEventListener('focus', createMask);
+    input.addEventListener('blur', createMask);
+    input.addEventListener('click', createMask);
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (mask);
+
+/***/ }),
+
 /***/ "./src/js/modules/radio.js":
 /*!*********************************!*\
   !*** ./src/js/modules/radio.js ***!
@@ -2580,6 +2657,13 @@ function send() {
       nameInput = document.querySelector('.main-form__name'),
       phoneInput = document.querySelector('.main-form__phone'),
       checkboxText = document.querySelectorAll('.main-form__checkbox-text'),
+      cityTitle = document.querySelector('.city'),
+      nameTitle = document.querySelector('.initials'),
+      phoneTitle = document.querySelector('.num-tel'),
+      sum = document.querySelector('.main-form__sum-range'),
+      strip = document.querySelector('.main-form__range-active'),
+      textRadio = document.querySelectorAll('.main-form__radio-text'),
+      textCheckbox = document.querySelectorAll('.main-form__checkbox-text'),
       activeBtn = 'active-btn',
       activeCheckbox = 'radio-checkbox-active';
   var checkboxValue = [false, false, false];
@@ -2608,6 +2692,13 @@ function send() {
       btn.classList.remove(activeBtn);
     }
   }, 200);
+
+  function checkbox() {
+    textCheckbox.forEach(function (item) {
+      item.classList.remove(activeCheckbox);
+    });
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -2615,6 +2706,14 @@ function send() {
       popup.style.display = 'none';
       thanks.style.display = 'block';
       form.reset();
+      cityTitle.style.opacity = 0;
+      nameTitle.style.opacity = 0;
+      phoneTitle.style.opacity = 0;
+      cityInput.style.color = "rgba(255, 255, 255, 0.5)";
+      sum.innerHTML = "0\n                <span class=\"rub\">P</span>";
+      strip.style.width = "0%";
+      checkbox();
+      textRadio[0].click();
     }
   });
   thanksBtn.addEventListener('click', function () {
@@ -2706,11 +2805,12 @@ function textInputs() {
   name.addEventListener('input', function () {
     if (name.value != '') {
       initials.style.opacity = 1;
-      var nameWidth = +getComputedStyle(name).width.replace(/\D/g, ''); // блок с устранением бага с автоподстановкой
+      var nameWidth = +getComputedStyle(name).width.replace(/[^\d.]/g, ''); // блок с устранением бага с автоподстановкой
 
       name.style.borderBottom = 'none';
       bugLineName.style.width = nameWidth + 'px';
       bugLineName.style.opacity = 1;
+      console.log(nameWidth);
     } else {
       initials.style.opacity = 0;
     }
@@ -2718,7 +2818,7 @@ function textInputs() {
   phone.addEventListener('input', function () {
     if (phone.value != '') {
       numTel.style.opacity = 1;
-      var numTelWidth = +getComputedStyle(phone).width.replace(/\D/g, ''); // блок с устранением бага с автоподстановкой
+      var numTelWidth = +getComputedStyle(phone).width.replace(/[^\d.]/g, ''); // блок с устранением бага с автоподстановкой
 
       phone.style.borderBottom = 'none';
       bugLinePhone.style.width = numTelWidth + 'px';
@@ -2755,6 +2855,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_switchOnOff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/switchOnOff */ "./src/js/modules/switchOnOff.js");
 /* harmony import */ var _modules_range__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/range */ "./src/js/modules/range.js");
 /* harmony import */ var _modules_send__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/send */ "./src/js/modules/send.js");
+/* harmony import */ var _modules_mask__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/mask */ "./src/js/modules/mask.js");
+
 
 
 
@@ -2763,6 +2865,8 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_textInputs__WEBPACK_IMPORTED_MODULE_0__["default"])(); // функция для работы инпутов ввода текста
+
+  Object(_modules_mask__WEBPACK_IMPORTED_MODULE_6__["default"])('[name="phone"]'); // функция для работы маски инпута
 
   Object(_modules_radio__WEBPACK_IMPORTED_MODULE_1__["default"])(); // функция для работы радиокнопок
 

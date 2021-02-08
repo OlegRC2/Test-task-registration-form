@@ -28,10 +28,11 @@ function textInputs() {                                                     // �
         if (name.value != '') {
             initials.style.opacity = 1;
 
-            let nameWidth = +getComputedStyle(name).width.replace(/\D/g, '');   // блок с устранением бага с автоподстановкой
+            let nameWidth = +getComputedStyle(name).width.replace(/[^\d.]/g, '');   // блок с устранением бага с автоподстановкой
             name.style.borderBottom = 'none';
             bugLineName.style.width = nameWidth + 'px';
             bugLineName.style.opacity = 1;
+            console.log(nameWidth);
 
         } else {
             initials.style.opacity = 0;
@@ -42,7 +43,7 @@ function textInputs() {                                                     // �
         if (phone.value != '') {
             numTel.style.opacity = 1;
 
-            let numTelWidth = +getComputedStyle(phone).width.replace(/\D/g, '');   // блок с устранением бага с автоподстановкой
+            let numTelWidth = +getComputedStyle(phone).width.replace(/[^\d.]/g, '');   // блок с устранением бага с автоподстановкой
             phone.style.borderBottom = 'none';
             bugLinePhone.style.width = numTelWidth + 'px';
             bugLinePhone.style.opacity = 1;

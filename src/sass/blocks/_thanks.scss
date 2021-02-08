@@ -1,12 +1,17 @@
+.container-thanks-shadow {
+    margin: 0 auto;
+    top: 50%;
+}
 .container-thanks {
     width: 780px;
     margin: 0 auto;
+    padding-top: 130px;
+    padding-bottom: 200px;
     .popup-thanks {
         position: relative;
         width: 720px;
         height: 416px;
         margin: 0 auto;
-        margin-top: 288px;
         background: #3D3C5A;
         border-radius: 16px;
         padding: 67px 80px 80px 80px;

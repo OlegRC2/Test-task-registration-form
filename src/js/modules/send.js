@@ -10,6 +10,16 @@ function send() {                                         // функция см
           phoneInput = document.querySelector('.main-form__phone'),
           checkboxText = document.querySelectorAll('.main-form__checkbox-text'),
 
+          cityTitle = document.querySelector('.city'),
+          nameTitle = document.querySelector('.initials'),
+          phoneTitle = document.querySelector('.num-tel'),
+
+          sum = document.querySelector('.main-form__sum-range'),
+          strip = document.querySelector('.main-form__range-active'),
+
+          textRadio = document.querySelectorAll('.main-form__radio-text'),
+          textCheckbox = document.querySelectorAll('.main-form__checkbox-text'),
+
           activeBtn = 'active-btn',
           activeCheckbox = 'radio-checkbox-active';
 
@@ -41,7 +51,13 @@ function send() {                                         // функция см
         } else {
             btn.classList.remove(activeBtn);
         }
-    }, 200);   
+    }, 200);  
+    
+    function checkbox () {
+        textCheckbox.forEach(item => {
+            item.classList.remove(activeCheckbox);
+        });
+    }
     
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -50,6 +66,15 @@ function send() {                                         // функция см
             popup.style.display = 'none';
             thanks.style.display = 'block';
             form.reset();
+            cityTitle.style.opacity = 0;
+            nameTitle.style.opacity = 0;
+            phoneTitle.style.opacity = 0;
+            cityInput.style.color = "rgba(255, 255, 255, 0.5)";
+            sum.innerHTML = `0
+                <span class="rub">P</span>`;
+            strip.style.width = `0%`;
+            checkbox();
+            textRadio[0].click();
         }
     });
 
